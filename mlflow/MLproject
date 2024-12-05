@@ -1,0 +1,10 @@
+name: mlflow-demo-iris
+
+docker_env: 
+  image: mlflow-demo-iris-base:latest # base docker image which contains the environment/dependencies for the MLFlow Project execution
+
+entry_points:
+  main:
+    parameters:
+      l1_ratio: {type: float, default: 0.1}
+    command: "python src/demo-iris.py --l1-ratio {l1_ratio}"

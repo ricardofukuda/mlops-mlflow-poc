@@ -1,0 +1,23 @@
+apiVersion: "serving.kserve.io/v1beta1"
+kind: "InferenceService"
+metadata:
+  name: "mlflow-demo-iris"
+  namespace: "mlflow-inference"
+spec:
+  predictor:
+    containers:
+      - name: "mlflow-demo-iris"
+        image: "123456789.dkr.ecr.us-east-1.amazonaws.com/mlflow-demo-iris-inference"
+        ports:
+          - containerPort: 8080
+            protocol: TCP
+        env:
+          - name: PROTOCOL
+            value: "v2"
+        resources:
+          limits:
+            cpu: 128m
+            memory: 1024Mi
+          requests:
+            cpu: 128m
+            memory: 512Mi

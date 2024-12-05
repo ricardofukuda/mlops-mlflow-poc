@@ -1,0 +1,21 @@
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: knative-serving
+  labels:
+    istio-injection: enabled
+---
+apiVersion: operator.knative.dev/v1beta1
+kind: KnativeServing
+metadata:
+  name: knative-serving
+  namespace: knative-serving
+spec:
+  version: "1.10.2" # Version to install
+  config:
+    domain:
+      ricardoxyz.xyz: "" # TEST ONLY
+    istio:
+      local-gateway.knative-serving.knative-local-gateway: "knative-local-gateway.istio-system.svc.cluster.local" 
+      gateway.knative-serving.knative-ingress-gateway: "istio-ingressgateway.istio-system.svc.cluster.local" # Ref: https://knative.dev/docs/install/operator/configuring-serving-cr/#replace-the-default-istio-ingress-gateway-service
