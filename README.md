@@ -1,7 +1,6 @@
-# POC AWS EKS Cluster
+# MLOPS MLFlow POC using AWS EKS Cluster
+Deploys MLFlow inside Kubernetes cluster. Contains instructions to train and deploy machine learning models using MLFlow and Kubernetes.
 This terraform deploys a basic eks cluster for testing pourposes.
-
-\* The ELB for the nginx ingress controller is going to be public but restrited to your public IP.
 
 ## Terraform Modules Reference
 https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/19.13.1
